@@ -1,8 +1,8 @@
 #!/bin/bash
-echo "Auto Git SSH Configuration"
-echo "Author & Source: https://github.com/ZXBYNXK/scripts/bash/git/auto-git-ssh-conf.sh "
+# Source: https://github.com/ZXBYNXK/scripts/bash/auto-git-ssh-setup.sh
 printf "Email: "
 read email
+echo "Generating ssh key for $email"
 ssh-keygen -t rsa -b 4096 -C "$email"
 cat ~/.ssh/id_rsa.pub
 echo "Go to https://github.com/settings/keys and copy then paste the above. (IMPORTANT)"
