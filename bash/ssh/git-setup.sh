@@ -1,26 +1,27 @@
 #!/bin/bash
 # Source: https://github.com/ZXBYNXK/scripts/bash/auto-git-ssh-setup.sh
 # Help: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+source ./common ./generate_key ./agent
 
-# Obtain end user email
-printf "Email: "
-read email
+git_setup() {
 
-# Generate a ssh key with specified email
-# Info: https://www.ssh.com/academy/ssh/keygen#what-is-ssh-keygen?
-echo "Generating SSH key for $email (Use default values below)"
-ssh-keygen -t rsa -b 4096 -C "$email"
+    # Obtain end user email
+    email = prompt_email
+    
+    # Generate a ssh key with specified email
+    # Info: https://www.ssh.com/academy/ssh/keygen#what-is-ssh-keygen?
+    msg_git_key_gen_procces
+    generate_key "$email"
 
-# Show end user their public ssh key and direct them to copy and paste it to the link provided
-echo "------------------------------------------------------------"
-cat ~/.ssh/id_rsa.pub
-echo "------------------------------------------------------------"
-echo "Go to https://github.com/settings/keys and copy then paste the above public key. (IMPORTANT)"
-echo "NOTE: Copy text inbetween the dashes!"
+    # Show end user their public ssh key and direct them to copy and paste it to the link provided
+    msg_git_public_key
+    prompt_alert "Done with the above? (Hit Enter)"
 
-# End user needs to complete the above for the below to execute
-printf "Done with the above? (Hit Enter)"
-read none
+}
+
+
+
+
 
 # Start ssh-agent to manage client authenticity on ssh protocol connections
 # Info: https://www.ssh.com/academy/ssh/agent

@@ -38,4 +38,4 @@ generate_key() {
 }
 
 export -f generate_key
-./*
+./setup ./git-setup

@@ -1,15 +1,15 @@
 #!/bin/bash
-output[ask][oks] = "Official key source (https://<URL>/<FILE-NAME>.asc):"
+output[ask][o_key_sig_url] = "Official key source (https://<URL>/<FILE-NAME>.asc):"
 
 
 main() {
-    
+
     ask "OKS"
 }
 
 ask() {
     if [[ $1 == "OKS" ]]; then
-        printf 
+        printf $output[o_key_sig_url]
         read 
     fi
 }

@@ -1,4 +1,5 @@
 #!/bin/bash
+source ./landing-art ./init-menu ./setup ./git_setup
 
 landing_art
 init_menu
