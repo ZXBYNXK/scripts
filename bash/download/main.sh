@@ -24,20 +24,22 @@ verify() {
 }
 
 download() {
-    temp = ~/Downloads/temp/
     # Download
     echo "Downloading from $1 ..."
-    wget -q -O - $1 -P $temp
+    wget -q -O - $1 -P $2
 }
 
+init() {
+    rm -rf $1
+    mkdir $1
+}
 
 main() {
-    rm -rf ~/Downloads/temp/
-    mkdir ~/Downloads/temp/
     temp = ~/Downloads/temp/
-    # 
+    init $temp
     count = 0
-    until [ $count -gt 3 ]
+
+    until [ $count -gt 4 ]
     do
             # Download official key
         if [[ $count -eq 0 ]];
@@ -50,7 +52,7 @@ main() {
             # Download
             echo "Downloading from $o_key_sig_url ..."
             # wget -q -O - $o_key_sig_url -P $temp
-            download $o_key_sig_url
+            download $o_key_sig_url $temp
 
         # Download Software 
         if [[ $count -eq 1 ]];
@@ -63,7 +65,7 @@ main() {
             # Download
             echo "Downloading software package from $software_pkg_url ..."
             # wget "$software_pkg_url" -P $temp
-            download $software_pkg_url
+            download $software_pkg_url $temp
         
         # Download SHA256SUMS 
         if [[ $count -eq 2 ]];
@@ -74,38 +76,23 @@ main() {
             read software_pkg_sha_url
 
             # Download
-            download $software_pkg_sha_url 
+            echo "Downloading SHA256SUMS from $software_pkg_sha_url ..."
+            download $software_pkg_sha_url $temp
         
+        # Verify download
+        if [[ $count -eq 3 ]];
+        then
+            
+            echo "Verifying software... "
+            cd $temp
+            sha256sum -c SHA256SUMS 2>&1 | grep OK
+
+        # Exit
+        if [[ $count -eq 4 ]];
+        then
+            echo "Download located in $temp"    
         ((count=count+1))
     done;
-
-    # done
-    # for file in $temp; do
-
-
-
-
-
-
-    echo "Downloading SHA256SUMS from $software_pkg_sha_url ..."
-    wget -q "$software_pkg_sha_url{.gpg,}" -P ./temp/pkg_sig/
-
-  
-
-    echo "Verifying files: ${temp_pkg_sig[0]}, ${temp_pkg_sig[1]} " 
-    gpg --verify ./temp/pkg_sig/${temp_pkg_sig[0]} ./temp/pkg_sig/${temp_pkg_sig[1]}
-
-    echo "Verifying software: ${temp_pkg[0]}"
-    mv ./temp/pkg/* ./temp/pkg_sig/* ./temp
-    rm -rf ./temp/key temp/pkg temp/pkg_sig
-    cd ./temp
-    sha256sum -c SHA256SUMS 2>&1 | grep OK
-
-    mv ./temp verified_download
-    rm -rf ~/Downloads/verified_download
-    mv ./verified_download ~/Downloads
-    cd ..
-    echo "You can find verified_download in ~/Downloads/verified_download"
     return
 }
 
