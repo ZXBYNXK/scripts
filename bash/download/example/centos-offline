@@ -1,0 +1,11 @@
+CENTOS-7-64-84
+./CENTOS-7-64-84.gpg
+./temp/check
+./temp/check/CentOS-7-x86_64-Everything-2009.iso
+# Will not parse lines >= 5
+
+FORMAT: centos.txt (Must be in this order)
+<SOFTWARE-NAME> (No spaces)
+<PATH-WHERE-SOFTWARE-OWNER-PUBLIC-PGP-KEY-IS-LOCATED>
+<PATH-WHERE-SHA256SUMS-IS-LOCATED>
+<PATH-WHERE-SOFTWARE-IS-LOCATED>

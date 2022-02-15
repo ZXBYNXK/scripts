@@ -1,0 +1,4 @@
+.gitgnore
+./bash/download/offline/*.iso
+./bash/download/offline/*.gpg
+

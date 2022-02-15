@@ -1,0 +1,22 @@
+
+-------------OWNER-PUBLIC-PGP-KEY--------------------
+
+-------------------SHA256SUMS------------------------
+2022-02-14 15:08:04 URL:http://mirror.cs.pitt.edu/centos/7.9.2009/isos/x86_64/ [3407/3407] -> "./temp/index.html.tmp" [1]
+http://mirror.cs.pitt.edu/robots.txt:
+2022-02-14 15:08:04 ERROR 404: Not Found.
+2022-02-14 15:08:05 URL:http://mirror.cs.pitt.edu/centos/7.9.2009/isos/x86_64/?C=N;O=D [3407/3407] -> "./temp/index.html?C=N;O=D.tmp" [1]
+2022-02-14 15:08:05 URL:http://mirror.cs.pitt.edu/centos/7.9.2009/isos/x86_64/?C=M;O=A [3407/3407] -> "./temp/index.html?C=M;O=A.tmp" [1]
+2022-02-14 15:08:05 URL:http://mirror.cs.pitt.edu/centos/7.9.2009/isos/x86_64/?C=S;O=A [3407/3407] -> "./temp/index.html?C=S;O=A.tmp" [1]
+2022-02-14 15:08:05 URL:http://mirror.cs.pitt.edu/centos/7.9.2009/isos/x86_64/?C=D;O=A [3407/3407] -> "./temp/index.html?C=D;O=A.tmp" [1]
+2022-02-14 15:08:05 URL:http://mirror.cs.pitt.edu/centos/7.9.2009/isos/ [954/954] -> "./temp/index.html.tmp" [1]
+2022-02-14 15:08:05 URL:http://mirror.cs.pitt.edu/centos/7.9.2009/isos/x86_64/sha256sum.txt [398/398] -> "./temp/sha256sum.txt" [1]
+2022-02-14 15:08:05 URL:http://mirror.cs.pitt.edu/centos/7.9.2009/isos/x86_64/sha256sum.txt.asc [1258/1258] -> "./temp/sha256sum.txt.asc" [1]
+FINISHED --2022-02-14 15:08:05--
+Total wall clock time: 0.3s
+Downloaded: 8 files, 19K in 0.004s (4.65 MB/s)
+
+-------------------SOFTWARE------------------------
+2022-02-14 15:58:02 URL:http://mirror.cs.pitt.edu/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Everything-2009.iso [10200547328/10200547328] -> "./temp/CentOS-7-x86_64-Everything-2009.iso" [1]
+
+-----------------VERIFICATION-----------------------
